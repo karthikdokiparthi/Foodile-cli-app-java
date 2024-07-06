@@ -45,10 +45,10 @@ public class Customers {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Customers customers = (Customers) o;
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Customers customers = (Customers) obj;
         return Objects.equals(id, customers.id) && Objects.equals(name, customers.name) && Objects.equals(email, customers.email) && Objects.equals(password, customers.password);
     }
 

@@ -45,11 +45,11 @@ public class Restaurants {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Restaurants that = (Restaurants) o;
-        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(address, that.address) && Objects.equals(menu, that.menu);
+    public boolean equals(Object obj){
+        if (this ==obj)return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Restaurants restaurant = (Restaurants) obj;
+        return Objects.equals(id, restaurant.id) && Objects.equals(name, restaurant.name) && Objects.equals(address,restaurant.address) && Objects.equals(menu, restaurant.menu);
     }
 
     @Override
