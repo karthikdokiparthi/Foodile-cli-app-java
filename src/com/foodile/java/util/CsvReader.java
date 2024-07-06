@@ -2,11 +2,13 @@ package com.foodile.java.util;
 
 import com.foodile.java.model.Customers;
 import com.foodile.java.model.Dish;
+import com.foodile.java.model.Restaurants;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CsvReader {
@@ -57,5 +59,28 @@ public class CsvReader {
         }
 
         return dishList;
+    }
+
+    List<Restaurants> restaurantList = new ArrayList<>();
+    String restaurantFilePath="D:\\TrainingHub\\Data Types\\foodile-cle-app-java\\data\\restaurants.csv";
+    public List<Restaurants> readCsvFromRestaurant(){
+        try (BufferedReader br=new BufferedReader(new FileReader(restaurantFilePath))){
+            br.readLine();
+            while ((line = br.readLine()) != null){
+                String[] data= line.split(csvSplitBy);
+                Restaurants restaurant=new Restaurants();
+                restaurant.setId(data[0]);
+                restaurant.setName(data[1]);
+                restaurant.setAddress(data[2]);
+                restaurant.setMenu(Collections.singletonList(data[3]));
+                restaurantList.add(restaurant);
+            }
+
+        }catch(IOException e){
+            System.out.println("File not found in the specified path");
+            System.exit(0);
+        }
+
+        return restaurantList;
     }
 }

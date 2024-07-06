@@ -7,5 +7,6 @@ public class Main {
         CsvReader csvReader = new CsvReader();
         System.out.println(csvReader.readCsvFromCustomer());
         System.out.println(csvReader.readCsvFromDish());
+        System.out.println(csvReader.readCsvFromRestaurant());
     }
 }
