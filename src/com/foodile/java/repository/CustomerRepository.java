@@ -20,8 +20,8 @@ public class CustomerRepository {
         this.customersList.add(customers);
         return customers;
     }
-    public Optional<Customers> findCustomerById(String id){
-       return this.customersList.stream().filter(customers -> customers.getId().equals(id)).findFirst();
+    public Optional<Customers> findCustomerById(String id,String email){
+       return this.customersList.stream().filter(customers -> customers.getId().equals(id) || customers.getEmail().equals(email)).findFirst();
     }
 
 }

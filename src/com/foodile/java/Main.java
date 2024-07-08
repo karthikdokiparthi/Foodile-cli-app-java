@@ -1,11 +1,12 @@
 package com.foodile.java;
 
-import com.foodile.java.repository.CustomerRepository;
-import com.foodile.java.util.CsvReader;
+import com.foodile.java.ui.Menu;
 
 public class Main {
     public static void main(String[] args) {
-        CustomerRepository customerRepository=new CustomerRepository();
-        System.out.println(customerRepository.getAllCustomersList());
+
+        Menu menu=new Menu();
+        menu.displayMainMenu();
+
     }
 }
