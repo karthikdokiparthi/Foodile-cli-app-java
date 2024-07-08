@@ -16,8 +16,8 @@ public class CustomerServiceImpl implements CustomerService{
     @Override
     public Customers save(Customers customers) throws CustomerExitsException {
 
-        Optional<Customers> customerById = this.customerRepository.findCustomerById(customers.getId(),customers.getEmail());
-        if(customerById.isPresent()) throw new CustomerExitsException("Customer already Exits with this id or Email : "+ customers.getId()+" "+customers.getEmail());
+        Optional<Customers> customerById = this.customerRepository.findCustomerById(customers.getId());
+        if(customerById.isPresent()) throw new CustomerExitsException("Customer already Exits with this id : "+ customers.getId());
         return this.customerRepository.save(customers);
     }
 }
