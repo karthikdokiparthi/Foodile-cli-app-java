@@ -33,8 +33,13 @@ public class Menu {
                 case 1:
                     displayRegisterMenu();
                     break;
+                case 7:
+                    System.out.println("Thank you using Foodie app, See you again");
+                    System.exit(0);
+                    break;
                 default:
                     System.out.println("Invalid Input.Please enter the valid input from (1-7)");
+
             }
         }
     }
