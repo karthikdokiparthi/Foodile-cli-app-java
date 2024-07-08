@@ -1,7 +1,7 @@
 package com.foodile.java.exceptions;
 
-public class DishExitsException extends Exception{
-    public DishExitsException(String message) {
+public class DishExistsException extends Exception{
+    public DishExistsException(String message) {
         super(message);
     }
 }

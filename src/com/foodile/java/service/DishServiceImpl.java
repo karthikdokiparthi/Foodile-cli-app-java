@@ -1,7 +1,6 @@
 package com.foodile.java.service;
 
-import com.foodile.java.exceptions.CustomerExitsException;
-import com.foodile.java.exceptions.DishExitsException;
+import com.foodile.java.exceptions.DishExistsException;
 import com.foodile.java.exceptions.DishNotFoundException;
 import com.foodile.java.model.Customers;
 import com.foodile.java.model.Dish;
@@ -24,9 +23,9 @@ public class DishServiceImpl implements DishService {
     }
 
     @Override
-    public Dish save(Dish dish) throws DishExitsException {
+    public Dish save(Dish dish) throws DishExistsException {
         Optional<Dish> dishById = this.dishRepository.findDishById(dish.getId());
-        if(dishById.isPresent()) throw new DishExitsException("Dish already Exits with this id : "+ dish.getId());
+        if(dishById.isPresent()) throw new DishExistsException("Dish already Exits with this id : "+ dish.getId());
         return this.dishRepository.saveDish(dish);
     }
 

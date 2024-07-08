@@ -1,7 +1,8 @@
 package com.foodile.java.exceptions;
 
-public class CustomerExitsException extends Exception{
-    public CustomerExitsException(String message) {
+
+public class CustomerExistsException extends Exception{
+    public CustomerExistsException(String message) {
         super(message);
     }
 }
