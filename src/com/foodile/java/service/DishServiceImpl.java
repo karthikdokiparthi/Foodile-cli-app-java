@@ -2,7 +2,6 @@ package com.foodile.java.service;
 
 import com.foodile.java.exceptions.DishExistsException;
 import com.foodile.java.exceptions.DishNotFoundException;
-import com.foodile.java.model.Customers;
 import com.foodile.java.model.Dish;
 import com.foodile.java.repository.DishRepository;
 
