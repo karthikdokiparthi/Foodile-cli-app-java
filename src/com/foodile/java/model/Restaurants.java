@@ -9,57 +9,78 @@ public class Restaurants {
     private String address;
     private List<String> menu;
 
-    public Restaurants() {
-    }
-
+    // Getter for restaurantId
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
+    // Setter for restaurantId
+    public Restaurants setId(String id) {
         this.id = id;
+        return this;
     }
 
+    // Getter for name
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    // Setter for name
+    public Restaurants setName(String name) {
         this.name = name;
+        return this;
     }
 
+    // Getter for address
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    // Setter for address
+    public Restaurants setAddress(String address) {
         this.address = address;
+        return this;
     }
 
+    // Getter for menu
     public List<String> getMenu() {
         return menu;
     }
 
-    public void setMenu(List<String> menu) {
+    // Setter for menu
+    public Restaurants setMenu(List<String> menu) {
         this.menu = menu;
+        return this;
     }
 
-    @Override
-    public boolean equals(Object obj){
-        if (this ==obj)return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Restaurants restaurant = (Restaurants) obj;
-        return Objects.equals(id, restaurant.id) && Objects.equals(name, restaurant.name) && Objects.equals(address,restaurant.address) && Objects.equals(menu, restaurant.menu);
-    }
 
+
+    // Overriding hashCode
     @Override
     public int hashCode() {
         return Objects.hash(id, name, address, menu);
     }
 
+    // Overriding equals
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Restaurants restaurant = (Restaurants) obj;
+        return Objects.equals(id, restaurant.id) &&
+                Objects.equals(name, restaurant.name) &&
+                Objects.equals(address, restaurant.address) &&
+                Objects.equals(menu, restaurant.menu);
+    }
+
+    // Overriding toString
     @Override
     public String toString() {
-        return "Restaurants{" +
+        return "Restaurant{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
