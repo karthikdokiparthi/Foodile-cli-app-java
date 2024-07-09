@@ -4,8 +4,10 @@ import com.foodile.java.controller.CustomerController;
 import com.foodile.java.controller.DishController;
 import com.foodile.java.exceptions.CustomerExistsException;
 import com.foodile.java.model.Customers;
+import com.foodile.java.model.Dish;
 import com.foodile.java.util.Factory;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
@@ -50,7 +52,16 @@ public class Menu {
 
     private void displayDishesList() {
         DishController dishController=Factory.getDishController();
-        System.out.println(dishController.getDishesList());
+        //System.out.println(dishController.getDishesList());
+        List<Dish> dishList=dishController.getDishesList();
+        String dashesLine = new String(new char[150]).replace('\0','-');
+        displayMenuHeader("Menu Items");
+        System.out.printf("%-10s %-30s %-80s %-10s\n","Id","Name","Description","Price");
+        System.out.println(dashesLine);
+        dishList.forEach(dish -> {
+            System.out.printf("%-10s %-30s %-80s %-10s\n",dish.getId(),dish.getName(),dish.getDescription(),String.format("$%.2f",dish.getPrice()));
+        });
+
     }
 
     private void displayRegisterMenu(){
@@ -94,5 +105,12 @@ public class Menu {
             System.out.println("Please login using Main Menu");
             displayMainMenu();
         }
+    }
+    public void displayMenuHeader(String menuHeader){
+        String dashesLine=new String(new char[150]).replace('\0','-');
+        System.out.println(dashesLine);
+        String spaces=new String(new char[70]).replace('\0',' ');
+        System.out.printf("%-70s %-10s %-70s \n",spaces,menuHeader,spaces);
+        System.out.println(dashesLine);
     }
 }
