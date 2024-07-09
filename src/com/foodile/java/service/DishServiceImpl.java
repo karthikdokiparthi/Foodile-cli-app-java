@@ -11,29 +11,46 @@ import java.util.Optional;
 
 public class DishServiceImpl implements DishService {
 
-    private DishRepository dishRepository;
+    private final DishRepository dishRepository;
 
-    public DishServiceImpl(DishRepository dishRepository){
-        this.dishRepository=dishRepository;
+    public DishServiceImpl(DishRepository dishRepository) {
+        this.dishRepository = dishRepository;
     }
 
     @Override
-    public List<Dish> getDishList() {
+    public List<Dish> getDishesList() {
         return this.dishRepository.getDishList();
     }
 
     @Override
     public Dish save(Dish dish) throws DishExistsException {
         Optional<Dish> dishById = this.dishRepository.findDishById(dish.getId());
-        if(dishById.isPresent()) throw new DishExistsException("Dish already Exits with this id : "+ dish.getId());
+        if(dishById.isPresent())
+            throw new DishExistsException("Dish Already Exists with this Id  :" + dish.getId());
         return this.dishRepository.saveDish(dish);
     }
 
     @Override
-    public Dish getDishId(String id) throws DishNotFoundException {
-        Optional<Dish> dishById=this.dishRepository.findDishById(id);
-        if(!dishById.isPresent())
-            throw new DishNotFoundException("Dish not found with this id: "+id);
+    public Dish getDishById(String id) throws DishNotFoundException {
+        Optional<Dish> dishById = this.dishRepository.findDishById(id);
+        if(dishById.isEmpty())
+            throw new DishNotFoundException("Dish Not Found With This Id  :" + id);
         return dishById.get();
+    }
+
+    @Override
+    public Dish update(Dish dish) throws DishNotFoundException {
+        Optional<Dish> dishById = this.dishRepository.findDishById(dish.getId());
+        if(dishById.isEmpty())
+            throw new DishNotFoundException("Dish Not Found with Id : " + dish.getId());
+        return this.dishRepository.updateDish(dish);
+    }
+
+    @Override
+    public void delete(String id) throws DishNotFoundException{
+        Optional<Dish> dishById = this.dishRepository.findDishById(id);
+        if(dishById.isEmpty())
+            throw new DishNotFoundException("Dish Not Found with Id : " + id);
+        this.dishRepository.deleteDish(dishById.get());
     }
 }
