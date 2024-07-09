@@ -1,6 +1,6 @@
 package com.foodile.java.controller;
 
-import com.foodile.java.exceptions.CustomerExitsException;
+import com.foodile.java.exceptions.CustomerExistsException;
 import com.foodile.java.model.Customers;
 import com.foodile.java.service.CustomerServiceImpl;
 
@@ -11,7 +11,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    public Customers save(Customers customers) throws CustomerExitsException{
+    public Customers save(Customers customers) throws CustomerExistsException{
         return this.customerService.save(customers);
     }
 }

@@ -1,7 +1,8 @@
 package com.foodile.java.ui;
 
 import com.foodile.java.controller.CustomerController;
-import com.foodile.java.exceptions.CustomerExitsException;
+import com.foodile.java.controller.DishController;
+import com.foodile.java.exceptions.CustomerExistsException;
 import com.foodile.java.model.Customers;
 import com.foodile.java.util.Factory;
 
@@ -21,7 +22,7 @@ public class Menu {
             System.out.println("1. Register (New Customer)");
             System.out.println("2. Login (Existing Customer)");
             System.out.println("3. View Restaurants");
-            System.out.println("4. View Menu");
+            System.out.println("4. View Dish Menu");
             System.out.println("5. Place Order");
             System.out.println("6. View Orders");
             System.out.println("7. Exit");
@@ -33,6 +34,9 @@ public class Menu {
                 case 1:
                     displayRegisterMenu();
                     break;
+                case 4:
+                    displayDishesList();
+                    break;
                 case 7:
                     System.out.println("Thank you using Foodie app, See you again");
                     System.exit(0);
@@ -43,6 +47,12 @@ public class Menu {
             }
         }
     }
+
+    private void displayDishesList() {
+        DishController dishController=Factory.getDishController();
+        System.out.println(dishController.getDishesList());
+    }
+
     private void displayRegisterMenu(){
         Scanner sc=new Scanner(System.in);
         System.out.println("please register entering the following details\n");
@@ -79,7 +89,7 @@ public class Menu {
                 displayRegisterMenu();
 
             }
-        } catch (CustomerExitsException e) {
+        } catch (CustomerExistsException e) {
             System.out.println(e.getMessage());
             System.out.println("Please login using Main Menu");
             displayMainMenu();
