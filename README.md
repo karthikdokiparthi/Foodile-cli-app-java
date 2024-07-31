@@ -36,7 +36,6 @@ Once the application is running, follow the on-screen prompts to navigate throug
 - **Place an Order**: Choose dishes and place an order.
 - **View Order History**: Access your past orders.
 
-
 ## Contact
 
 For any questions, feedback, or support, please contact:
