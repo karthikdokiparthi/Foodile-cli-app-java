@@ -37,10 +37,6 @@ Once the application is running, follow the on-screen prompts to navigate throug
 - **View Order History**: Access your past orders.
 
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
 ## Contact
 
 For any questions, feedback, or support, please contact:
